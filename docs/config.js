@@ -8,7 +8,7 @@ window.PARTY = {
 
   // Web app URL of the Google Apps Script that saves RSVPs and photos
   // (see PARTY-SETUP.md). Until this is set, the forms show a "not connected" note.
-  endpoint: "",
+  endpoint: "https://script.google.com/macros/s/AKfycbycJj3GDgBNbde9wLkPH7w6YWp7lEdDwh5Dzi7sFvko7ISAopIugTEpsFWAqJh4jkoL/exec",
 
   rsvpDeadline: "31 October 2026",
 
