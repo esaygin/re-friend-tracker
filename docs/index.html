@@ -1,0 +1,788 @@
+<!doctype html>
+<html lang="en" data-style="alpine">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Pero's 40th</title>
+<meta name="description" content="A surprise celebration for Pero at Stoos Lodge, 12–13 December 2026.">
+<meta property="og:title" content="You're invited: Pero's 40th">
+<meta property="og:description" content="A surprise celebration at Stoos Lodge, 12–13 December 2026. Please RSVP by 31 October.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Italiana&family=Jost:wght@300;400;500&family=Karla:wght@400;500;600&family=Manrope:wght@400;500;600&display=swap">
+<style>
+/* Layout: one 1080px column; each section is a two-column sheet (label rail + content) that stacks on phones.
+   Three committed looks, chosen by data-style on <html>. Each sets every color explicitly. */
+:root {
+  /* Alpine Evening: pine-forest green, champagne gold, Cormorant + Jost */
+  --bg: #12231c;
+  --bg-2: #183027;
+  --surface: #1d382d;
+  --field: #0e1d17;
+  --ink: #efe9da;
+  --muted: #a8b6aa;
+  --accent: #d0b06e;
+  --accent-ink: #1a1609;
+  --line: rgba(239, 233, 218, 0.16);
+  --ok: #9fcf9a;
+  --err: #f0a08f;
+  --display: "Cormorant Garamond", "Cormorant", Georgia, "Times New Roman", serif;
+  --body: "Jost", "Avenir Next", "Segoe UI", system-ui, sans-serif;
+  --display-weight: 500;
+  --display-italic: italic;
+  --label-track: 0.22em;
+  color-scheme: dark;
+}
+:root[data-style="noir"] {
+  /* Black Tie: ink black, warm gold leaf, Bodoni + Manrope */
+  --bg: #0d0c0b;
+  --bg-2: #151311;
+  --surface: #1b1815;
+  --field: #0a0908;
+  --ink: #f4efe4;
+  --muted: #b3aa9a;
+  --accent: #d8b46a;
+  --accent-ink: #15110a;
+  --line: rgba(216, 180, 106, 0.22);
+  --ok: #b9d48f;
+  --err: #f0a08f;
+  --display: "Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body: "Manrope", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-italic: italic;
+  --label-track: 0.28em;
+  color-scheme: dark;
+}
+:root[data-style="porcelain"] {
+  /* Porcelain & Navy: cool white, deep navy ink, antique gold, Italiana + Karla */
+  --bg: #f4f4f1;
+  --bg-2: #eaebe7;
+  --surface: #ffffff;
+  --field: #ffffff;
+  --ink: #1b2540;
+  --muted: #5b6378;
+  --accent: #94713a;
+  --accent-ink: #ffffff;
+  --line: rgba(27, 37, 64, 0.16);
+  --ok: #2f6b3a;
+  --err: #a2352a;
+  --display: "Italiana", "Didot", Georgia, serif;
+  --body: "Karla", "Helvetica Neue", "Segoe UI", system-ui, sans-serif;
+  --display-weight: 400;
+  --display-italic: normal;
+  --label-track: 0.24em;
+  color-scheme: light;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+[hidden] { display: none !important; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } *, *::before, *::after { transition: none !important; animation: none !important; } }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+img { max-width: 100%; display: block; }
+a { color: var(--accent); text-underline-offset: 0.2em; }
+:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+h1, h2, h3 { font-family: var(--display); font-weight: var(--display-weight); text-wrap: balance; margin: 0; line-height: 1.1; }
+p { margin: 0; }
+
+.wrap { max-width: 1080px; margin: 0 auto; padding-inline: max(16px, 4vw); }
+.label {
+  font-family: var(--body);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: var(--label-track);
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+/* Top bar */
+.topbar { border-bottom: 1px solid var(--line); }
+.topbar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding-block: 14px; }
+.monogram { font-family: var(--display); font-size: 1.4rem; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+.nav { display: flex; gap: clamp(12px, 3vw, 28px); flex-wrap: wrap; }
+.nav a { color: var(--muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; }
+.nav a:hover { color: var(--ink); }
+@media (max-width: 560px) { .nav a.opt { display: none; } }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--line); }
+.hero .wrap { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr); gap: 32px; align-items: end; padding-block: clamp(48px, 9vw, 104px) clamp(80px, 12vw, 140px); position: relative; z-index: 1; }
+.hero h1 { font-size: clamp(3rem, 9vw, 6.2rem); letter-spacing: -0.01em; }
+.hero h1 em { font-style: var(--display-italic); color: var(--accent); }
+.hero .lede { margin-top: 20px; max-width: 34ch; font-size: 1.15rem; color: var(--muted); }
+.hero .facts { margin-top: 28px; display: grid; gap: 6px; font-size: 1rem; }
+.hero .facts strong { font-weight: 500; color: var(--ink); }
+.hero .ctas { margin-top: 32px; display: flex; flex-wrap: wrap; gap: 12px; }
+.forty {
+  font-family: var(--display);
+  font-weight: var(--display-weight);
+  font-size: clamp(9rem, 30vw, 20rem);
+  line-height: 0.8;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent);
+  text-align: right;
+  user-select: none;
+}
+.forty small { display: block; -webkit-text-stroke: 0; color: var(--muted); font-family: var(--body); font-size: 0.8rem; letter-spacing: var(--label-track); text-transform: uppercase; line-height: 1.4; margin-top: 18px; }
+.ridge { position: absolute; left: 0; right: 0; bottom: 0; width: 100%; height: clamp(70px, 12vw, 130px); color: var(--accent); opacity: 0.55; pointer-events: none; }
+.ridge path.fill { fill: var(--bg-2); stroke: none; }
+.ridge path.line { fill: none; stroke: currentColor; stroke-width: 1.2; vector-effect: non-scaling-stroke; }
+@media (max-width: 760px) {
+  .hero .wrap { grid-template-columns: 1fr; }
+  .forty { text-align: left; order: -1; font-size: clamp(7rem, 38vw, 11rem); }
+  .forty small { display: none; }
+}
+
+.btn {
+  display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  min-height: 48px; padding: 0 24px;
+  border: 1px solid var(--accent); border-radius: 2px;
+  background: var(--accent); color: var(--accent-ink);
+  font: 500 0.85rem/1 var(--body); letter-spacing: 0.14em; text-transform: uppercase;
+  text-decoration: none; cursor: pointer;
+}
+.btn.ghost { background: transparent; color: var(--ink); border-color: var(--line); }
+.btn.ghost:hover { border-color: var(--accent); }
+.btn:disabled { opacity: 0.55; cursor: progress; }
+
+/* Secret banner */
+.secret { background: var(--bg-2); border-bottom: 1px solid var(--line); }
+.secret .wrap { display: flex; gap: 16px; align-items: baseline; padding-block: 18px; flex-wrap: wrap; }
+.secret p { color: var(--muted); max-width: 70ch; }
+.secret p strong { color: var(--ink); font-weight: 500; }
+
+/* Sections */
+section.sheet { border-bottom: 1px solid var(--line); }
+section.sheet > .wrap { display: grid; grid-template-columns: 220px minmax(0, 1fr); gap: 40px; padding-block: clamp(56px, 8vw, 96px); }
+section.sheet.alt { background: var(--bg-2); }
+.rail { display: grid; gap: 14px; align-content: start; }
+.rail h2 { font-size: clamp(2.1rem, 4.5vw, 2.9rem); }
+.body { display: grid; gap: 28px; min-width: 0; }
+.body > p, .body .prose { max-width: 62ch; }
+.prose { display: grid; gap: 14px; color: var(--ink); }
+.prose p.muted, .muted { color: var(--muted); }
+@media (max-width: 760px) { section.sheet > .wrap { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Weekend schedule */
+.schedule { list-style: none; margin: 0; padding: 0; display: grid; border-top: 1px solid var(--line); }
+.schedule li { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 20px; padding-block: 20px; border-bottom: 1px solid var(--line); }
+.schedule .when { font-family: var(--display); font-size: 1.35rem; line-height: 1.2; }
+.schedule .when span { display: block; font-family: var(--body); font-size: 0.75rem; letter-spacing: var(--label-track); text-transform: uppercase; color: var(--muted); margin-top: 4px; }
+.schedule h3 { font-size: 1.5rem; margin-bottom: 4px; }
+.schedule p { color: var(--muted); }
+.tbd { display: inline-block; margin-left: 8px; padding: 2px 8px; border: 1px solid var(--line); border-radius: 99px; font-family: var(--body); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); vertical-align: middle; }
+@media (max-width: 520px) { .schedule li { grid-template-columns: 1fr; gap: 6px; } }
+
+/* Voucher */
+.voucher {
+  position: relative;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 20px; align-items: center;
+  padding: 28px clamp(20px, 4vw, 36px);
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  outline: 1px solid var(--line); outline-offset: -8px;
+}
+.voucher .code { font-family: var(--display); font-size: clamp(2.4rem, 7vw, 3.6rem); letter-spacing: 0.12em; color: var(--accent); line-height: 1; margin-top: 8px; word-break: break-all; }
+.voucher p { color: var(--muted); margin-top: 10px; }
+@media (max-width: 560px) { .voucher { grid-template-columns: 1fr; } }
+.steps { list-style: none; counter-reset: s; margin: 0; padding: 0; display: grid; gap: 14px; max-width: 62ch; }
+.steps li { counter-increment: s; display: grid; grid-template-columns: 36px minmax(0, 1fr); gap: 12px; align-items: baseline; }
+.steps li::before { content: counter(s); font-family: var(--display); font-size: 1.5rem; color: var(--accent); }
+.note { padding: 16px 20px; border-left: 2px solid var(--accent); background: var(--surface); max-width: 62ch; color: var(--muted); }
+.note strong { color: var(--ink); font-weight: 500; }
+.links { display: flex; flex-wrap: wrap; gap: 12px; }
+
+/* Forms */
+form { display: grid; gap: 22px; max-width: 640px; }
+.row { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+@media (max-width: 560px) { .row { grid-template-columns: 1fr; } }
+.field { display: grid; gap: 8px; min-width: 0; }
+.field > label, fieldset legend { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.field .hint { font-size: 0.85rem; color: var(--muted); }
+input[type="text"], input[type="email"], input[type="tel"], input[type="date"], select, textarea {
+  width: 100%; min-height: 48px; padding: 12px 14px;
+  font: inherit; font-size: 1rem; color: var(--ink);
+  background: var(--field); border: 1px solid var(--line); border-radius: 2px;
+}
+textarea { min-height: 96px; resize: vertical; }
+input:focus, select:focus, textarea:focus { border-color: var(--accent); outline: none; box-shadow: 0 0 0 1px var(--accent); }
+fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; min-width: 0; }
+.choices { display: grid; gap: 10px; }
+.choice { position: relative; }
+.choice input { position: absolute; opacity: 0; inset: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.choice span { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 2px; background: var(--field); }
+.choice input:checked + span { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
+.choice input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
+.kids { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+.hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.status { min-height: 1.6em; font-size: 0.95rem; }
+.status.ok { color: var(--ok); }
+.status.err { color: var(--err); }
+.thanks { display: grid; gap: 14px; padding: 28px; border: 1px solid var(--accent); background: var(--surface); max-width: 640px; }
+.thanks h3 { font-size: 2rem; }
+
+/* Photo upload */
+.drop { display: grid; gap: 8px; place-items: center; text-align: center; padding: 32px 20px; border: 1px dashed var(--accent); border-radius: 2px; background: var(--field); cursor: pointer; }
+.drop.over { background: var(--surface); }
+.drop strong { font-family: var(--display); font-size: 1.6rem; font-weight: var(--display-weight); }
+.drop input { position: absolute; width: 1px; height: 1px; opacity: 0; }
+.thumbs { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: 10px; }
+.thumb { position: relative; aspect-ratio: 1; max-width: 100%; background: var(--surface); border: 1px solid var(--line); overflow: hidden; }
+.thumb img { width: 100%; height: 100%; object-fit: cover; }
+.thumb .st { position: absolute; left: 0; right: 0; bottom: 0; padding: 3px 6px; font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; background: var(--bg); color: var(--muted); }
+.thumb .st.done { color: var(--ok); }
+.thumb .st.fail { color: var(--err); }
+.thumb button { position: absolute; top: 4px; right: 4px; width: 28px; height: 28px; border: 0; border-radius: 50%; background: var(--bg); color: var(--ink); cursor: pointer; font-size: 1rem; line-height: 1; }
+
+footer { padding-block: 48px 72px; }
+footer .wrap { display: grid; gap: 10px; color: var(--muted); }
+footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink); }
+
+/* Style picker (preview only) */
+.picker {
+  position: fixed; left: 12px; bottom: calc(12px + env(safe-area-inset-bottom, 0px)); z-index: 10;
+  display: flex; gap: 4px; padding: 4px; align-items: center;
+  background: var(--surface); border: 1px solid var(--line); border-radius: 99px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.25);
+  font-family: system-ui, sans-serif; font-size: 0.78rem;
+}
+.picker span { padding: 0 8px 0 10px; color: var(--muted); }
+.picker button { border: 0; border-radius: 99px; padding: 8px 12px; background: transparent; color: var(--ink); font: inherit; cursor: pointer; }
+.picker button[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="monogram" href="#top">P · 40</a>
+    <nav class="nav" aria-label="Sections">
+      <a class="opt" href="#weekend">Weekend</a>
+      <a href="#stay">Hotel</a>
+      <a href="#rsvp">RSVP</a>
+      <a href="#photos">Photos</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <p class="label">A surprise celebration</p>
+        <h1 style="margin-top:14px">Pero is turning <em>forty</em></h1>
+        <p class="lede">Join us in the mountains for a birthday dinner and a weekend with the people she loves most.</p>
+        <div class="facts">
+          <p><strong>Saturday 12 – Sunday 13 December 2026</strong></p>
+          <p>Stoos Lodge, Stoos, Switzerland</p>
+          <p class="muted">Hosted by Eren, Derin &amp; Selin · <span id="countdown"></span></p>
+        </div>
+        <div class="ctas">
+          <a class="btn" href="#rsvp">RSVP by <span data-cfg="rsvpDeadlineShort">31 October</span></a>
+          <a class="btn ghost" href="#stay">Hotel voucher</a>
+        </div>
+      </div>
+      <div class="forty" aria-hidden="true">40<small>12 · 12 · 2026</small></div>
+    </div>
+    <svg class="ridge" viewBox="0 0 1200 130" preserveAspectRatio="none" aria-hidden="true">
+      <path class="fill" d="M0 130 L0 96 L90 80 L170 88 L260 52 L330 70 L410 34 L470 58 L540 22 L600 46 L680 30 L760 64 L840 48 L930 76 L1010 60 L1100 84 L1200 72 L1200 130 Z"/>
+      <path class="line" d="M0 96 L90 80 L170 88 L260 52 L330 70 L410 34 L470 58 L540 22 L600 46 L680 30 L760 64 L840 48 L930 76 L1010 60 L1100 84 L1200 72"/>
+    </svg>
+  </section>
+
+  <div class="secret">
+    <div class="wrap">
+      <span class="label">Shh</span>
+      <p><strong>It's a surprise. Pero doesn't know.</strong> Please don't mention it to her, in group chats she's part of, or on social media. If she asks about your plans for that weekend, you're busy.</p>
+    </div>
+  </div>
+
+  <section class="sheet" id="weekend">
+    <div class="wrap">
+      <div class="rail">
+        <p class="label">The weekend</p>
+        <h2>Dinner in the mountains</h2>
+      </div>
+      <div class="body">
+        <p class="prose">We're gathering at Stoos Lodge, a car-free mountain village above Lake Lucerne. The heart of the weekend is a birthday dinner on Saturday evening. More of the programme will follow, and we'll update this page as plans come together.</p>
+        <ol class="schedule">
+          <li>
+            <div class="when">Sat 12 Dec<span>Afternoon</span></div>
+            <div><h3>Arrive and settle in</h3><p>Check in at Stoos Lodge, or come up just for the evening.</p></div>
+          </li>
+          <li>
+            <div class="when">Sat 12 Dec<span>Evening</span></div>
+            <div><h3>Birthday dinner <span class="tbd">Time to follow</span></h3><p>Dinner for Pero at Stoos Lodge. We'll share the exact time and the arrival plan for the surprise closer to the date.</p></div>
+          </li>
+          <li>
+            <div class="when">Sun 13 Dec<span>All day</span></div>
+            <div><h3>Mountain morning</h3><p>Breakfast together, snow, and the playground for the kids. Stay longer if you like: the voucher works for as many nights as you book.</p></div>
+          </li>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet alt" id="stay">
+    <div class="wrap">
+      <div class="rail">
+        <p class="label">Stay the night</p>
+        <h2>Your hotel voucher</h2>
+      </div>
+      <div class="body">
+        <div class="voucher">
+          <div>
+            <p class="label">Stoos Lodge · guest code</p>
+            <p class="code" id="voucherCode">PEROS40</p>
+            <p>A discount on your whole stay, for as many nights as you like.</p>
+          </div>
+          <button class="btn" type="button" id="copyCode">Copy code</button>
+        </div>
+        <ol class="steps">
+          <li><p>Go to <a href="https://stoos-lodge.ch/" target="_blank" rel="noopener">stoos-lodge.ch</a> and choose your dates and room.</p></li>
+          <li><p>Enter the voucher code <strong>PEROS40</strong> when you book.</p></li>
+          <li><p>Let us know in the RSVP form below whether you're staying, so we can plan the weekend.</p></li>
+        </ol>
+        <p class="note"><strong>Rooms aren't held for us.</strong> Booking is subject to availability, and December is ski season, so we recommend booking early.</p>
+        <div class="prose">
+          <p class="label">Getting there</p>
+          <p>Stoos is car-free. You leave the car at the valley station and ride up by funicular from Schwyz or by cable car from Morschach. The hotel's website has directions, parking and timetables.</p>
+          <p class="muted">Stoos Lodge is child-friendly, with a great playground for the kids.</p>
+        </div>
+        <div class="links">
+          <a class="btn ghost" href="https://stoos-lodge.ch/" target="_blank" rel="noopener">Hotel website</a>
+          <a class="btn ghost" href="https://maps.app.goo.gl/fPttRpofpN2fMSsb6" target="_blank" rel="noopener">Open in Google Maps</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet" id="rsvp">
+    <div class="wrap">
+      <div class="rail">
+        <p class="label">RSVP</p>
+        <h2>Will you join us?</h2>
+        <p class="muted">Please reply by <span data-cfg="rsvpDeadline">31 October 2026</span>, one form per family.</p>
+      </div>
+      <div class="body">
+        <div class="thanks" id="rsvpThanks" hidden>
+          <p class="label">Thank you</p>
+          <h3 id="thanksTitle">We've got your reply</h3>
+          <p class="muted" id="thanksText"></p>
+          <div><button class="btn ghost" type="button" id="rsvpAgain">Change your answer</button></div>
+        </div>
+
+        <form id="rsvpForm" novalidate>
+          <div class="row">
+            <div class="field">
+              <label for="family">Family name</label>
+              <input id="family" name="family" type="text" autocomplete="family-name" placeholder="e.g. The Keller family" required>
+            </div>
+            <div class="field">
+              <label for="names">Your first names</label>
+              <input id="names" name="names" type="text" placeholder="e.g. Anna & Marco" required>
+            </div>
+          </div>
+          <div class="row">
+            <div class="field">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required>
+              <span class="hint">For updates. Use the same email to change your answer later.</span>
+            </div>
+            <div class="field">
+              <label for="phone">Mobile (WhatsApp)</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel">
+            </div>
+          </div>
+
+          <fieldset>
+            <legend>Can you come?</legend>
+            <div class="choices">
+              <label class="choice"><input type="radio" name="attending" value="Yes" id="attYes" required><span>Yes, we'll be there</span></label>
+              <label class="choice"><input type="radio" name="attending" value="No" id="attNo"><span>Sadly, we can't make it</span></label>
+            </div>
+          </fieldset>
+
+          <div id="comingFields" hidden>
+            <div style="display:grid;gap:22px">
+              <div class="row">
+                <div class="field">
+                  <label for="adults">Adults</label>
+                  <select id="adults" name="adults"></select>
+                </div>
+                <div class="field">
+                  <label for="children">Children</label>
+                  <select id="children" name="children"></select>
+                </div>
+              </div>
+              <div class="field" id="kidsBlock" hidden>
+                <label>Children's ages</label>
+                <div class="kids" id="kidsAges"></div>
+                <span class="hint">Helps us plan the kids' table and the playground.</span>
+              </div>
+
+              <fieldset>
+                <legend>Are you staying at Stoos Lodge?</legend>
+                <div class="choices">
+                  <label class="choice"><input type="radio" name="hotel" value="Yes" id="hotelYes"><span>Yes, we're staying</span></label>
+                  <label class="choice"><input type="radio" name="hotel" value="Maybe" id="hotelMaybe"><span>Maybe, still deciding</span></label>
+                  <label class="choice"><input type="radio" name="hotel" value="No" id="hotelNo"><span>No, just for the dinner</span></label>
+                </div>
+              </fieldset>
+              <div class="row" id="hotelDates" hidden>
+                <div class="field">
+                  <label for="arrival">Arriving</label>
+                  <input id="arrival" name="arrival" type="date" value="2026-12-12">
+                </div>
+                <div class="field">
+                  <label for="departure">Leaving</label>
+                  <input id="departure" name="departure" type="date" value="2026-12-13">
+                </div>
+              </div>
+
+              <div class="field">
+                <label for="dietary">Allergies or dietary needs</label>
+                <textarea id="dietary" name="dietary" placeholder="e.g. one vegetarian, nut allergy (child)"></textarea>
+              </div>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="message">A message for Pero (optional)</label>
+            <textarea id="message" name="message" placeholder="A wish, a memory, a story she'd love to hear"></textarea>
+          </div>
+
+          <div class="hp" aria-hidden="true"><label for="website">Leave empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+          <div>
+            <button class="btn" type="submit" id="rsvpSubmit">Send RSVP</button>
+          </div>
+          <p class="status" id="rsvpStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet alt" id="photos">
+    <div class="wrap">
+      <div class="rail">
+        <p class="label">A gift from all of us</p>
+        <h2>Share your photos of Pero</h2>
+      </div>
+      <div class="body">
+        <div class="prose">
+          <p>We're making Pero a photo album filled with moments from everyone who loves her. Childhood, school days, holidays, nights out, last week: every photo of her or with her is welcome.</p>
+          <p class="muted">Upload as many as you like. Add a line about where or when it was taken if you remember. <span id="photoDeadline"></span></p>
+        </div>
+
+        <form id="photoForm" novalidate>
+          <div class="field">
+            <label for="photoFrom">Your name</label>
+            <input id="photoFrom" name="photoFrom" type="text" placeholder="So we know who shared them" required>
+          </div>
+          <label class="drop" id="drop" for="photoFiles">
+            <strong>Choose photos</strong>
+            <span class="muted">or drop them here · JPG, PNG or HEIC</span>
+            <input id="photoFiles" type="file" accept="image/*" multiple>
+          </label>
+          <div class="thumbs" id="thumbs"></div>
+          <div class="field">
+            <label for="photoNote">About these photos (optional)</label>
+            <textarea id="photoNote" name="photoNote" placeholder="e.g. Summer 2009 in Split, the trip where we got lost"></textarea>
+          </div>
+          <div>
+            <button class="btn" type="submit" id="photoSubmit">Upload photos</button>
+          </div>
+          <p class="status" id="photoStatus" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <p class="sig">Eren, Derin &amp; Selin</p>
+    <p>Questions? Ask <span data-cfg="contactName">Eren</span><span id="contactPhone"></span>, and please don't tell Pero.</p>
+  </div>
+</footer>
+
+<div class="picker" id="picker" hidden>
+  <span>Style</span>
+  <button type="button" data-style="alpine">Alpine</button>
+  <button type="button" data-style="noir">Black tie</button>
+  <button type="button" data-style="porcelain">Porcelain</button>
+</div>
+
+<script src="config.js"></script>
+<script>
+(function () {
+  var CFG = Object.assign({
+    style: "alpine", showStylePicker: false, endpoint: "",
+    rsvpDeadline: "31 October 2026", photoDeadline: "", contactName: "Eren", contactPhone: ""
+  }, window.PARTY || {});
+  var STORE_KEY = "pero40";
+
+  function $(id) { return document.getElementById(id); }
+  function load() { try { return JSON.parse(localStorage.getItem(STORE_KEY) || "{}"); } catch (e) { return {}; } }
+  function save(patch) { try { localStorage.setItem(STORE_KEY, JSON.stringify(Object.assign(load(), patch))); } catch (e) {} }
+
+  /* Style */
+  var styles = ["alpine", "noir", "porcelain"];
+  function setStyle(s) {
+    if (styles.indexOf(s) < 0) s = "alpine";
+    document.documentElement.setAttribute("data-style", s);
+    document.querySelectorAll("#picker button").forEach(function (b) { b.setAttribute("aria-pressed", String(b.dataset.style === s)); });
+  }
+  var saved = load().style;
+  setStyle(CFG.showStylePicker && saved ? saved : CFG.style);
+  if (CFG.showStylePicker) {
+    $("picker").hidden = false;
+    $("picker").addEventListener("click", function (e) {
+      var b = e.target.closest("button"); if (!b) return;
+      setStyle(b.dataset.style); save({ style: b.dataset.style });
+    });
+  }
+
+  /* Config text */
+  document.querySelectorAll("[data-cfg]").forEach(function (el) {
+    var k = el.dataset.cfg;
+    if (k === "rsvpDeadlineShort") el.textContent = CFG.rsvpDeadline.replace(/\s+\d{4}$/, "");
+    else if (CFG[k]) el.textContent = CFG[k];
+  });
+  if (CFG.contactPhone) $("contactPhone").textContent = " on " + CFG.contactPhone;
+  if (CFG.photoDeadline) $("photoDeadline").textContent = "Please share them by " + CFG.photoDeadline + ".";
+
+  /* Countdown */
+  var party = new Date(2026, 11, 12);
+  var today = new Date(); today.setHours(0, 0, 0, 0);
+  var days = Math.round((party - today) / 86400000);
+  $("countdown").textContent = days > 1 ? days + " days to go" : days === 1 ? "tomorrow" : days === 0 ? "today" : "what a night it was";
+
+  /* Voucher copy */
+  $("copyCode").addEventListener("click", function () {
+    var btn = this, code = $("voucherCode").textContent.trim();
+    function done(ok) { btn.textContent = ok ? "Copied" : "Select and copy"; setTimeout(function () { btn.textContent = "Copy code"; }, 2200); }
+    function fallback() {
+      var r = document.createRange(); r.selectNodeContents($("voucherCode"));
+      var s = window.getSelection(); s.removeAllRanges(); s.addRange(r); done(false);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(code).then(function () { done(true); }, fallback);
+    else fallback();
+  });
+
+  /* Backend */
+  function send(payload) {
+    if (!CFG.endpoint) return Promise.reject(new Error("not-connected"));
+    return fetch(CFG.endpoint, {
+      method: "POST",
+      headers: { "Content-Type": "text/plain;charset=utf-8" },
+      body: JSON.stringify(payload)
+    }).then(function (r) { return r.json(); }).then(function (j) {
+      if (!j || !j.ok) throw new Error((j && j.error) || "failed");
+      return j;
+    });
+  }
+  function errorText(err) {
+    if (err && err.message === "not-connected") return "This form isn't connected yet. Your answer was not sent.";
+    return "That didn't go through. Check your connection and try again. If it keeps failing, message " + CFG.contactName + ".";
+  }
+
+  /* RSVP */
+  var form = $("rsvpForm");
+  function fillSelect(sel, from, to, val) {
+    sel.innerHTML = "";
+    for (var i = from; i <= to; i++) { var o = document.createElement("option"); o.value = i; o.textContent = i; sel.appendChild(o); }
+    sel.value = val;
+  }
+  fillSelect($("adults"), 1, 8, 2);
+  fillSelect($("children"), 0, 8, 0);
+
+  function renderKids() {
+    var n = +$("children").value, box = $("kidsAges"), prev = [];
+    box.querySelectorAll("select").forEach(function (s) { prev.push(s.value); });
+    box.innerHTML = "";
+    for (var i = 0; i < n; i++) {
+      var wrap = document.createElement("div"); wrap.className = "field";
+      var lab = document.createElement("label"); lab.htmlFor = "kid" + i; lab.textContent = "Child " + (i + 1);
+      var sel = document.createElement("select"); sel.id = "kid" + i;
+      var ph = document.createElement("option"); ph.value = ""; ph.textContent = "Age"; sel.appendChild(ph);
+      var u = document.createElement("option"); u.value = "0"; u.textContent = "Under 1"; sel.appendChild(u);
+      for (var a = 1; a <= 17; a++) { var o = document.createElement("option"); o.value = a; o.textContent = a + (a === 1 ? " year" : " years"); sel.appendChild(o); }
+      if (prev[i] != null) sel.value = prev[i];
+      wrap.appendChild(lab); wrap.appendChild(sel); box.appendChild(wrap);
+    }
+    $("kidsBlock").hidden = n === 0;
+  }
+  $("children").addEventListener("change", renderKids);
+
+  function syncVisibility() {
+    $("comingFields").hidden = !$("attYes").checked;
+    $("hotelDates").hidden = !$("hotelYes").checked;
+  }
+  form.addEventListener("change", syncVisibility);
+
+  function setStatus(el, text, kind) { el.textContent = text; el.className = "status" + (kind ? " " + kind : ""); }
+
+  function showThanks(r) {
+    form.hidden = true;
+    $("rsvpThanks").hidden = false;
+    if (r.attending === "Yes") {
+      $("thanksTitle").textContent = "We can't wait to see you";
+      var who = r.adults + (r.adults == 1 ? " adult" : " adults") + (r.children > 0 ? " and " + r.children + (r.children == 1 ? " child" : " children") : "");
+      var stay = r.hotel === "Yes" ? " You're staying at Stoos Lodge: remember the code PEROS40 when you book." : "";
+      $("thanksText").textContent = "We've noted " + who + " for the " + r.family + "." + stay + " And not a word to Pero.";
+    } else {
+      $("thanksTitle").textContent = "We'll miss you";
+      $("thanksText").textContent = "Thank you for letting us know. You can still share photos for Pero's album below.";
+    }
+  }
+
+  var last = load().rsvp;
+  if (last) {
+    Object.keys(last).forEach(function (k) {
+      var el = form.elements[k]; if (!el || k === "kidAges") return;
+      if (el.length && el[0] && el[0].type === "radio") { Array.prototype.forEach.call(el, function (r) { r.checked = r.value === last[k]; }); }
+      else el.value = last[k];
+    });
+    renderKids();
+    (last.kidAges || []).forEach(function (a, i) { var s = $("kid" + i); if (s) s.value = a; });
+    syncVisibility();
+    showThanks(last);
+  }
+
+  $("rsvpAgain").addEventListener("click", function () {
+    $("rsvpThanks").hidden = true; form.hidden = false; setStatus($("rsvpStatus"), "");
+    $("family").focus();
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    var st = $("rsvpStatus"), f = form.elements;
+    var att = f.attending.value;
+    var missing = [];
+    if (!f.family.value.trim()) missing.push("family name");
+    if (!f.names.value.trim()) missing.push("first names");
+    if (!/^\S+@\S+\.\S+$/.test(f.email.value.trim())) missing.push("a valid email");
+    if (!att) missing.push("whether you can come");
+    var kidAges = [];
+    if (att === "Yes") {
+      $("kidsAges").querySelectorAll("select").forEach(function (s) { kidAges.push(s.value); });
+      if (kidAges.some(function (a) { return a === ""; })) missing.push("each child's age");
+      if (!f.hotel.value) missing.push("whether you're staying at the hotel");
+    }
+    if (missing.length) { setStatus(st, "Please add " + missing.join(", ") + ".", "err"); return; }
+
+    var r = {
+      family: f.family.value.trim(), names: f.names.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(),
+      attending: att,
+      adults: att === "Yes" ? +f.adults.value : 0,
+      children: att === "Yes" ? +f.children.value : 0,
+      kidAges: att === "Yes" ? kidAges : [],
+      hotel: att === "Yes" ? f.hotel.value : "",
+      arrival: att === "Yes" && f.hotel.value === "Yes" ? f.arrival.value : "",
+      departure: att === "Yes" && f.hotel.value === "Yes" ? f.departure.value : "",
+      dietary: att === "Yes" ? f.dietary.value.trim() : "",
+      message: f.message.value.trim()
+    };
+    var btn = $("rsvpSubmit"); btn.disabled = true; setStatus(st, "Sending…");
+    send(Object.assign({ type: "rsvp", website: f.website.value }, r)).then(function () {
+      save({ rsvp: r }); setStatus(st, ""); showThanks(r);
+      $("rsvp").scrollIntoView({ block: "start" });
+    }, function (err) { setStatus(st, errorText(err), "err"); }).then(function () { btn.disabled = false; });
+  });
+
+  /* Photos */
+  var queue = [];
+  var MAX_EDGE = 3200;
+  if (load().photoFrom) $("photoFrom").value = load().photoFrom;
+  else if (last && last.names) $("photoFrom").value = last.names + " " + last.family.replace(/^the\s+/i, "").replace(/\s+family$/i, "");
+
+  function addFiles(list) {
+    Array.prototype.forEach.call(list, function (file) {
+      if (!/^image\//.test(file.type) && !/\.(heic|heif)$/i.test(file.name)) return;
+      var item = { file: file, state: "ready" };
+      var el = document.createElement("div"); el.className = "thumb";
+      var img = document.createElement("img"); img.alt = file.name;
+      img.src = URL.createObjectURL(file);
+      var st = document.createElement("span"); st.className = "st"; st.textContent = "Ready";
+      var rm = document.createElement("button"); rm.type = "button"; rm.setAttribute("aria-label", "Remove " + file.name); rm.textContent = "×";
+      rm.addEventListener("click", function () { if (item.state === "sending") return; queue.splice(queue.indexOf(item), 1); el.remove(); });
+      el.appendChild(img); el.appendChild(st); el.appendChild(rm);
+      item.el = el; item.st = st; item.rm = rm;
+      $("thumbs").appendChild(el); queue.push(item);
+    });
+    var pending = queue.filter(function (q) { return q.state !== "done"; }).length;
+    setStatus($("photoStatus"), pending ? pending + (pending === 1 ? " photo" : " photos") + " ready to upload." : "");
+  }
+  $("photoFiles").addEventListener("change", function () { addFiles(this.files); this.value = ""; });
+  var drop = $("drop");
+  ["dragenter", "dragover"].forEach(function (t) { drop.addEventListener(t, function (e) { e.preventDefault(); drop.classList.add("over"); }); });
+  ["dragleave", "drop"].forEach(function (t) { drop.addEventListener(t, function (e) { e.preventDefault(); drop.classList.remove("over"); }); });
+  drop.addEventListener("drop", function (e) { if (e.dataTransfer) addFiles(e.dataTransfer.files); });
+
+  function readDataUrl(blob) {
+    return new Promise(function (res, rej) { var fr = new FileReader(); fr.onload = function () { res(fr.result); }; fr.onerror = rej; fr.readAsDataURL(blob); });
+  }
+  // Shrinks very large photos to a print-friendly size so uploads stay fast on mobile data.
+  function prepare(file) {
+    if (!window.createImageBitmap) return Promise.resolve({ blob: file, name: file.name, type: file.type || "image/jpeg" });
+    return createImageBitmap(file, { imageOrientation: "from-image" }).then(function (bmp) {
+      var scale = Math.min(1, MAX_EDGE / Math.max(bmp.width, bmp.height));
+      if (scale === 1 && /jpe?g/.test(file.type) && file.size < 8e6) return { blob: file, name: file.name, type: file.type };
+      var c = document.createElement("canvas");
+      c.width = Math.round(bmp.width * scale); c.height = Math.round(bmp.height * scale);
+      c.getContext("2d").drawImage(bmp, 0, 0, c.width, c.height);
+      return new Promise(function (res) {
+        c.toBlob(function (b) { res({ blob: b, name: file.name.replace(/\.[^.]+$/, "") + ".jpg", type: "image/jpeg" }); }, "image/jpeg", 0.9);
+      });
+    }).catch(function () { return { blob: file, name: file.name, type: file.type || "image/jpeg" }; });
+  }
+
+  $("photoForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+    var st = $("photoStatus"), from = $("photoFrom").value.trim(), note = $("photoNote").value.trim();
+    var todo = queue.filter(function (q) { return q.state !== "done"; });
+    if (!from) { setStatus(st, "Please add your name so we know who shared the photos.", "err"); return; }
+    if (!todo.length) { setStatus(st, "Choose at least one photo first.", "err"); return; }
+    if (!CFG.endpoint) { setStatus(st, errorText(new Error("not-connected")), "err"); return; }
+    save({ photoFrom: from });
+    var btn = $("photoSubmit"); btn.disabled = true;
+    var ok = 0, failed = 0, i = 0;
+    function next() {
+      if (i >= todo.length) {
+        btn.disabled = false;
+        if (failed) setStatus(st, ok + " uploaded, " + failed + " didn't go through. Press Upload photos to retry them.", "err");
+        else { setStatus(st, "Thank you! " + ok + (ok === 1 ? " photo is" : " photos are") + " on the way to Pero's album. You can add more anytime.", "ok"); $("photoNote").value = ""; }
+        return;
+      }
+      var item = todo[i++];
+      item.state = "sending"; item.st.className = "st"; item.st.textContent = "Uploading";
+      setStatus(st, "Uploading " + i + " of " + todo.length + "…");
+      prepare(item.file).then(function (p) {
+        if (p.blob.size > 25e6) throw new Error("too-large");
+        return readDataUrl(p.blob).then(function (url) {
+          return send({ type: "photo", from: from, note: note, filename: p.name, mimeType: p.type, data: url.split(",")[1], website: "" });
+        });
+      }).then(function () {
+        item.state = "done"; item.st.textContent = "Sent"; item.st.className = "st done"; item.rm.hidden = true; ok++;
+      }, function (err) {
+        item.state = "failed"; item.st.textContent = err && err.message === "too-large" ? "Too large" : "Failed"; item.st.className = "st fail"; failed++;
+      }).then(next);
+    }
+    next();
+  });
+})();
+</script>
+</body>
+</html>
