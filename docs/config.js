@@ -4,7 +4,7 @@ window.PARTY = {
   style: "alpine",
 
   // Shows the style switcher in the bottom corner. Set to false once you have chosen.
-  showStylePicker: true,
+  showStylePicker: false,
 
   // Web app URL of the Google Apps Script that saves RSVPs and photos
   // (see PARTY-SETUP.md). Until this is set, the forms show a "not connected" note.
