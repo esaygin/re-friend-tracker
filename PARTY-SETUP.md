@@ -1,4 +1,4 @@
-# Pero's 40th: website setup
+# Peros 40th: website setup
 
 The website is in `docs/` (one page plus `docs/config.js` for settings).
 RSVPs and photos go to **your own Google Sheet and Google Drive** through a small
@@ -6,13 +6,13 @@ Google Apps Script (`party-backend/Code.gs`). Guests don't need any account.
 
 ## 1. Connect the RSVP form and photo uploads (about 10 minutes)
 
-1. Create a new Google Sheet, for example "Pero's 40th RSVPs".
+1. Create a new Google Sheet, for example "Peros 40th RSVPs".
 2. In the sheet, open **Extensions → Apps Script**.
 3. Delete the sample code and paste in everything from `party-backend/Code.gs`. Save.
 4. In the toolbar, pick the function **setup** and press **Run**. Google asks you to
    authorise the script: choose your account, then **Advanced → Go to project → Allow**.
    This creates the *RSVPs*, *Photos* and *Summary* tabs and a Drive folder called
-   "Pero's 40th - photo album".
+   "Peros 40th - photo album".
 5. Press **Deploy → New deployment**, choose type **Web app**, and set:
    - Execute as: **Me**
    - Who has access: **Anyone**
@@ -23,9 +23,10 @@ Optional: set `NOTIFY_EMAIL` at the top of `Code.gs` to get an email on each RSV
 After any later change to `Code.gs`, use **Deploy → Manage deployments → Edit → New version**
 so the same URL keeps working.
 
-**Where to see responses:** the *Summary* tab shows the totals (families, adults, children,
-children by age group, hotel stays). The *RSVPs* tab has one row per family. If a family
-replies again with the same email, their row is updated rather than duplicated.
+**Where to see responses:** the *Summary* tab shows the totals: families coming, adults,
+kids, total people, and who is staying 1 night, 2 nights or coming for dinner only.
+The *RSVPs* tab has one row per family. If a family replies again under the same name,
+their row is updated rather than duplicated.
 Photos land in the Drive folder, named after the person who shared them.
 
 ## 2. Put the website online with GitHub Pages

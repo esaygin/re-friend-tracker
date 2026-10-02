@@ -4,9 +4,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="noindex, nofollow">
-<title>Pero's 40th</title>
-<meta name="description" content="A surprise celebration for Pero at Stoos Lodge, 12–13 December 2026.">
-<meta property="og:title" content="You're invited: Pero's 40th">
+<title>Peros 40th</title>
+<meta name="description" content="A surprise celebration for Peros at Stoos Lodge, 12–13 December 2026.">
+<meta property="og:title" content="You're invited: Peros 40th">
 <meta property="og:description" content="A surprise celebration at Stoos Lodge, 12–13 December 2026. Please RSVP by 31 October.">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -223,7 +223,23 @@ fieldset { border: 0; margin: 0; padding: 0; display: grid; gap: 10px; min-width
 .choice span { display: block; padding: 14px 16px; border: 1px solid var(--line); border-radius: 2px; background: var(--field); }
 .choice input:checked + span { border-color: var(--accent); box-shadow: inset 3px 0 0 var(--accent); }
 .choice input:focus-visible + span { outline: 2px solid var(--accent); outline-offset: 2px; }
-.kids { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
+.stack { display: grid; gap: 22px; }
+.choices.two { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.choices.three { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+@media (max-width: 560px) { .choices.three { grid-template-columns: 1fr; } }
+.choice span { height: 100%; }
+.counters { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
+.counter { display: grid; gap: 8px; }
+.counter .cl { font-size: 0.8rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+.step { display: grid; grid-template-columns: 48px minmax(0, 1fr) 48px; align-items: center; border: 1px solid var(--line); background: var(--field); border-radius: 2px; }
+.step button { height: 52px; border: 0; background: transparent; color: var(--accent); font-size: 1.5rem; cursor: pointer; }
+.step button:disabled { color: var(--muted); opacity: 0.4; cursor: default; }
+.step output { text-align: center; font-family: var(--display); font-size: 1.9rem; line-height: 1; font-variant-numeric: tabular-nums; }
+.hint { font-size: 0.85rem; color: var(--muted); }
+.features { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0 32px; }
+.features li { padding-block: 18px; border-top: 1px solid var(--line); display: grid; gap: 4px; align-content: start; }
+.features h3 { font-size: 1.45rem; }
+.features p { color: var(--muted); }
 .hp { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 .status { min-height: 1.6em; font-size: 0.95rem; }
 .status.ok { color: var(--ok); }
@@ -269,6 +285,7 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
     <nav class="nav" aria-label="Sections">
       <a class="opt" href="#weekend">Weekend</a>
       <a href="#stay">Hotel</a>
+      <a class="opt" href="#kids">Kids</a>
       <a href="#rsvp">RSVP</a>
       <a href="#photos">Photos</a>
     </nav>
@@ -280,7 +297,7 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
     <div class="wrap">
       <div>
         <p class="label">A surprise celebration</p>
-        <h1 style="margin-top:14px">Pero is turning <em>forty</em></h1>
+        <h1 style="margin-top:14px">Peros is turning <em>forty</em></h1>
         <p class="lede">Join us in the mountains for a birthday dinner and a weekend with the people she loves most.</p>
         <div class="facts">
           <p><strong>Saturday 12 – Sunday 13 December 2026</strong></p>
@@ -303,7 +320,7 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
   <div class="secret">
     <div class="wrap">
       <span class="label">Shh</span>
-      <p><strong>It's a surprise. Pero doesn't know.</strong> Please don't mention it to her, in group chats she's part of, or on social media. If she asks about your plans for that weekend, you're busy.</p>
+      <p><strong>It's a surprise. Peros doesn't know.</strong> Please don't mention it to her, in group chats she's part of, or on social media. If she asks about your plans for that weekend, you're busy.</p>
     </div>
   </div>
 
@@ -322,7 +339,7 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
           </li>
           <li>
             <div class="when">Sat 12 Dec<span>Evening</span></div>
-            <div><h3>Birthday dinner <span class="tbd">Time to follow</span></h3><p>Dinner for Pero at Stoos Lodge. We'll share the exact time and the arrival plan for the surprise closer to the date.</p></div>
+            <div><h3>Birthday dinner <span class="tbd">Time to follow</span></h3><p>Dinner for Peros at Stoos Lodge. We'll share the exact time and the arrival plan for the surprise closer to the date.</p></div>
           </li>
           <li>
             <div class="when">Sun 13 Dec<span>All day</span></div>
@@ -357,7 +374,6 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
         <div class="prose">
           <p class="label">Getting there</p>
           <p>Stoos is car-free. You leave the car at the valley station and ride up by funicular from Schwyz or by cable car from Morschach. The hotel's website has directions, parking and timetables.</p>
-          <p class="muted">Stoos Lodge is child-friendly, with a great playground for the kids.</p>
         </div>
         <div class="links">
           <a class="btn ghost" href="https://stoos-lodge.ch/" target="_blank" rel="noopener">Hotel website</a>
@@ -367,7 +383,31 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
     </div>
   </section>
 
-  <section class="sheet" id="rsvp">
+  <section class="sheet" id="kids">
+    <div class="wrap">
+      <div class="rail">
+        <p class="label">Bring the kids</p>
+        <h2>A hotel made for families</h2>
+      </div>
+      <div class="body">
+        <p class="prose">Stoos Lodge is a family hotel, so the kids will have as much fun as we do. While the grown-ups enjoy dinner, the play area is right next to the restaurant.</p>
+        <ul class="features">
+          <li><h3>Indoor fun park</h3><p>200 m² of play space with a climbing wall, a trampoline and a ball pit.</p></li>
+          <li><h3>The big slide</h3><p>An eight-metre slide goes straight from the restaurant down into the play area.</p></li>
+          <li><h3>Kids' club</h3><p>An accredited mountain daycare with indoor and outdoor activities, run by the hotel's own team.</p></li>
+          <li><h3>Family rooms</h3><p>16 family rooms with connecting doors, so everyone has space.</p></li>
+          <li><h3>For the little ones</h3><p>Babies up to 2 stay free with a cot, and breakfast is free for kids up to 6.</p></li>
+          <li><h3>Car-free village</h3><p>No traffic in Stoos, and snow right outside the door in December.</p></li>
+        </ul>
+        <p class="muted">Details are from the hotel's family page. Please check prices and kids' club times when you book.</p>
+        <div class="links">
+          <a class="btn ghost" href="https://stoos-lodge.ch/en/families/" target="_blank" rel="noopener">Family info at Stoos Lodge</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="sheet alt" id="rsvp">
     <div class="wrap">
       <div class="rail">
         <p class="label">RSVP</p>
@@ -383,83 +423,59 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
         </div>
 
         <form id="rsvpForm" novalidate>
-          <div class="row">
-            <div class="field">
-              <label for="family">Family name</label>
-              <input id="family" name="family" type="text" autocomplete="family-name" placeholder="e.g. The Keller family" required>
-            </div>
-            <div class="field">
-              <label for="names">Your first names</label>
-              <input id="names" name="names" type="text" placeholder="e.g. Anna & Marco" required>
-            </div>
-          </div>
-          <div class="row">
-            <div class="field">
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" autocomplete="email" required>
-              <span class="hint">For updates. Use the same email to change your answer later.</span>
-            </div>
-            <div class="field">
-              <label for="phone">Mobile (WhatsApp)</label>
-              <input id="phone" name="phone" type="tel" autocomplete="tel">
-            </div>
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="name" type="text" autocomplete="name" placeholder="e.g. Anna &amp; Marco Keller" required>
           </div>
 
           <fieldset>
             <legend>Can you come?</legend>
-            <div class="choices">
-              <label class="choice"><input type="radio" name="attending" value="Yes" id="attYes" required><span>Yes, we'll be there</span></label>
-              <label class="choice"><input type="radio" name="attending" value="No" id="attNo"><span>Sadly, we can't make it</span></label>
+            <div class="choices two">
+              <label class="choice"><input type="radio" name="attending" value="Yes" id="attYes"><span>Yes, we'll be there</span></label>
+              <label class="choice"><input type="radio" name="attending" value="No" id="attNo"><span>Sorry, we can't</span></label>
             </div>
           </fieldset>
 
           <div id="comingFields" hidden>
-            <div style="display:grid;gap:22px">
-              <div class="row">
-                <div class="field">
-                  <label for="adults">Adults</label>
-                  <select id="adults" name="adults"></select>
+            <div class="stack">
+              <div class="counters">
+                <div class="counter">
+                  <span class="cl" id="adultsLabel">Adults</span>
+                  <div class="step" role="group" aria-labelledby="adultsLabel">
+                    <button type="button" data-target="adults" data-d="-1" aria-label="One adult fewer">−</button>
+                    <output id="adultsOut" aria-live="polite">2</output>
+                    <button type="button" data-target="adults" data-d="1" aria-label="One adult more">+</button>
+                  </div>
                 </div>
-                <div class="field">
-                  <label for="children">Children</label>
-                  <select id="children" name="children"></select>
+                <div class="counter">
+                  <span class="cl" id="kidsLabel">Kids</span>
+                  <div class="step" role="group" aria-labelledby="kidsLabel">
+                    <button type="button" data-target="kids" data-d="-1" aria-label="One kid fewer">−</button>
+                    <output id="kidsOut" aria-live="polite">0</output>
+                    <button type="button" data-target="kids" data-d="1" aria-label="One kid more">+</button>
+                  </div>
                 </div>
               </div>
-              <div class="field" id="kidsBlock" hidden>
-                <label>Children's ages</label>
-                <div class="kids" id="kidsAges"></div>
-                <span class="hint">Helps us plan the kids' table and the playground.</span>
+              <p class="hint" id="totalLine">2 people in total</p>
+              <div class="field" id="kidsAgesField" hidden>
+                <label for="kidsAges">Kids' ages (optional)</label>
+                <input id="kidsAges" name="kidsAges" type="text" placeholder="e.g. 2, 5 and 8">
               </div>
 
               <fieldset>
-                <legend>Are you staying at Stoos Lodge?</legend>
-                <div class="choices">
-                  <label class="choice"><input type="radio" name="hotel" value="Yes" id="hotelYes"><span>Yes, we're staying</span></label>
-                  <label class="choice"><input type="radio" name="hotel" value="Maybe" id="hotelMaybe"><span>Maybe, still deciding</span></label>
-                  <label class="choice"><input type="radio" name="hotel" value="No" id="hotelNo"><span>No, just for the dinner</span></label>
+                <legend>Staying at Stoos Lodge?</legend>
+                <div class="choices three">
+                  <label class="choice"><input type="radio" name="nights" value="0" id="n0"><span>No, just the dinner</span></label>
+                  <label class="choice"><input type="radio" name="nights" value="1" id="n1"><span>Yes, 1 night</span></label>
+                  <label class="choice"><input type="radio" name="nights" value="2" id="n2"><span>Yes, 2 nights</span></label>
                 </div>
               </fieldset>
-              <div class="row" id="hotelDates" hidden>
-                <div class="field">
-                  <label for="arrival">Arriving</label>
-                  <input id="arrival" name="arrival" type="date" value="2026-12-12">
-                </div>
-                <div class="field">
-                  <label for="departure">Leaving</label>
-                  <input id="departure" name="departure" type="date" value="2026-12-13">
-                </div>
-              </div>
-
-              <div class="field">
-                <label for="dietary">Allergies or dietary needs</label>
-                <textarea id="dietary" name="dietary" placeholder="e.g. one vegetarian, nut allergy (child)"></textarea>
-              </div>
             </div>
           </div>
 
           <div class="field">
-            <label for="message">A message for Pero (optional)</label>
-            <textarea id="message" name="message" placeholder="A wish, a memory, a story she'd love to hear"></textarea>
+            <label for="phone">Mobile number (optional)</label>
+            <input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="In case we need to reach you">
           </div>
 
           <div class="hp" aria-hidden="true"><label for="website">Leave empty</label><input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></div>
@@ -473,15 +489,15 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
     </div>
   </section>
 
-  <section class="sheet alt" id="photos">
+  <section class="sheet" id="photos">
     <div class="wrap">
       <div class="rail">
         <p class="label">A gift from all of us</p>
-        <h2>Share your photos of Pero</h2>
+        <h2>Share your photos of Peros</h2>
       </div>
       <div class="body">
         <div class="prose">
-          <p>We're making Pero a photo album filled with moments from everyone who loves her. Childhood, school days, holidays, nights out, last week: every photo of her or with her is welcome.</p>
+          <p>We're making Peros a photo album filled with moments from everyone who loves her. Childhood, school days, holidays, nights out, last week: every photo of her or with her is welcome.</p>
           <p class="muted">Upload as many as you like. Add a line about where or when it was taken if you remember. <span id="photoDeadline"></span></p>
         </div>
 
@@ -513,7 +529,7 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
 <footer>
   <div class="wrap">
     <p class="sig">Eren, Derin &amp; Selin</p>
-    <p>Questions? Ask <span data-cfg="contactName">Eren</span><span id="contactPhone"></span>, and please don't tell Pero.</p>
+    <p>Questions? Ask <span data-cfg="contactName">Eren</span><span id="contactPhone"></span>, and please don't tell Peros.</p>
   </div>
 </footer>
 
@@ -600,100 +616,87 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
 
   /* RSVP */
   var form = $("rsvpForm");
-  function fillSelect(sel, from, to, val) {
-    sel.innerHTML = "";
-    for (var i = from; i <= to; i++) { var o = document.createElement("option"); o.value = i; o.textContent = i; sel.appendChild(o); }
-    sel.value = val;
-  }
-  fillSelect($("adults"), 1, 8, 2);
-  fillSelect($("children"), 0, 8, 0);
+  var counts = { adults: 2, kids: 0 };
+  var LIMITS = { adults: [1, 10], kids: [0, 10] };
 
-  function renderKids() {
-    var n = +$("children").value, box = $("kidsAges"), prev = [];
-    box.querySelectorAll("select").forEach(function (s) { prev.push(s.value); });
-    box.innerHTML = "";
-    for (var i = 0; i < n; i++) {
-      var wrap = document.createElement("div"); wrap.className = "field";
-      var lab = document.createElement("label"); lab.htmlFor = "kid" + i; lab.textContent = "Child " + (i + 1);
-      var sel = document.createElement("select"); sel.id = "kid" + i;
-      var ph = document.createElement("option"); ph.value = ""; ph.textContent = "Age"; sel.appendChild(ph);
-      var u = document.createElement("option"); u.value = "0"; u.textContent = "Under 1"; sel.appendChild(u);
-      for (var a = 1; a <= 17; a++) { var o = document.createElement("option"); o.value = a; o.textContent = a + (a === 1 ? " year" : " years"); sel.appendChild(o); }
-      if (prev[i] != null) sel.value = prev[i];
-      wrap.appendChild(lab); wrap.appendChild(sel); box.appendChild(wrap);
-    }
-    $("kidsBlock").hidden = n === 0;
+  function renderCounts() {
+    ["adults", "kids"].forEach(function (k) {
+      $(k + "Out").textContent = counts[k];
+      form.querySelector('[data-target="' + k + '"][data-d="-1"]').disabled = counts[k] <= LIMITS[k][0];
+      form.querySelector('[data-target="' + k + '"][data-d="1"]').disabled = counts[k] >= LIMITS[k][1];
+    });
+    var total = counts.adults + counts.kids;
+    $("totalLine").textContent = total + (total === 1 ? " person" : " people") + " in total";
+    $("kidsAgesField").hidden = counts.kids === 0;
   }
-  $("children").addEventListener("change", renderKids);
+  form.querySelectorAll(".step button").forEach(function (b) {
+    b.addEventListener("click", function () {
+      var k = b.dataset.target, v = counts[k] + Number(b.dataset.d);
+      counts[k] = Math.max(LIMITS[k][0], Math.min(LIMITS[k][1], v));
+      renderCounts();
+    });
+  });
+  renderCounts();
 
-  function syncVisibility() {
-    $("comingFields").hidden = !$("attYes").checked;
-    $("hotelDates").hidden = !$("hotelYes").checked;
-  }
+  function syncVisibility() { $("comingFields").hidden = !$("attYes").checked; }
   form.addEventListener("change", syncVisibility);
 
   function setStatus(el, text, kind) { el.textContent = text; el.className = "status" + (kind ? " " + kind : ""); }
+  function plural(n, one, many) { return n + " " + (n === 1 ? one : many); }
 
   function showThanks(r) {
     form.hidden = true;
     $("rsvpThanks").hidden = false;
     if (r.attending === "Yes") {
       $("thanksTitle").textContent = "We can't wait to see you";
-      var who = r.adults + (r.adults == 1 ? " adult" : " adults") + (r.children > 0 ? " and " + r.children + (r.children == 1 ? " child" : " children") : "");
-      var stay = r.hotel === "Yes" ? " You're staying at Stoos Lodge: remember the code PEROS40 when you book." : "";
-      $("thanksText").textContent = "We've noted " + who + " for the " + r.family + "." + stay + " And not a word to Pero.";
+      var who = plural(r.adults, "adult", "adults") + (r.kids > 0 ? " and " + plural(r.kids, "kid", "kids") : "");
+      var stay = r.nights > 0
+        ? " Staying " + plural(r.nights, "night", "nights") + " at Stoos Lodge: remember the code PEROS40 when you book."
+        : "";
+      $("thanksText").textContent = "We've noted " + who + "." + stay + " And not a word to Peros.";
     } else {
       $("thanksTitle").textContent = "We'll miss you";
-      $("thanksText").textContent = "Thank you for letting us know. You can still share photos for Pero's album below.";
+      $("thanksText").textContent = "Thank you for letting us know. You can still share photos for the album below.";
     }
   }
 
   var last = load().rsvp;
-  if (last) {
-    Object.keys(last).forEach(function (k) {
-      var el = form.elements[k]; if (!el || k === "kidAges") return;
-      if (el.length && el[0] && el[0].type === "radio") { Array.prototype.forEach.call(el, function (r) { r.checked = r.value === last[k]; }); }
-      else el.value = last[k];
-    });
-    renderKids();
-    (last.kidAges || []).forEach(function (a, i) { var s = $("kid" + i); if (s) s.value = a; });
-    syncVisibility();
-    showThanks(last);
+  if (last && last.name) {
+    form.elements.name.value = last.name;
+    form.elements.phone.value = last.phone || "";
+    form.elements.kidsAges.value = last.kidsAges || "";
+    $("attYes").checked = last.attending === "Yes"; $("attNo").checked = last.attending === "No";
+    if (last.attending === "Yes") {
+      counts.adults = last.adults; counts.kids = last.kids;
+      var n = $("n" + last.nights); if (n) n.checked = true;
+    }
+    renderCounts(); syncVisibility(); showThanks(last);
   }
 
   $("rsvpAgain").addEventListener("click", function () {
     $("rsvpThanks").hidden = true; form.hidden = false; setStatus($("rsvpStatus"), "");
-    $("family").focus();
+    $("name").focus();
   });
 
   form.addEventListener("submit", function (e) {
     e.preventDefault();
     var st = $("rsvpStatus"), f = form.elements;
-    var att = f.attending.value;
+    var att = f.attending.value, nights = f.nights.value;
     var missing = [];
-    if (!f.family.value.trim()) missing.push("family name");
-    if (!f.names.value.trim()) missing.push("first names");
-    if (!/^\S+@\S+\.\S+$/.test(f.email.value.trim())) missing.push("a valid email");
+    if (!f.name.value.trim()) missing.push("your name");
     if (!att) missing.push("whether you can come");
-    var kidAges = [];
-    if (att === "Yes") {
-      $("kidsAges").querySelectorAll("select").forEach(function (s) { kidAges.push(s.value); });
-      if (kidAges.some(function (a) { return a === ""; })) missing.push("each child's age");
-      if (!f.hotel.value) missing.push("whether you're staying at the hotel");
-    }
-    if (missing.length) { setStatus(st, "Please add " + missing.join(", ") + ".", "err"); return; }
+    else if (att === "Yes" && nights === "") missing.push("whether you're staying at the hotel");
+    if (missing.length) { setStatus(st, "Please add " + missing.join(" and ") + ".", "err"); return; }
 
+    var yes = att === "Yes";
     var r = {
-      family: f.family.value.trim(), names: f.names.value.trim(), email: f.email.value.trim(), phone: f.phone.value.trim(),
+      name: f.name.value.trim(),
       attending: att,
-      adults: att === "Yes" ? +f.adults.value : 0,
-      children: att === "Yes" ? +f.children.value : 0,
-      kidAges: att === "Yes" ? kidAges : [],
-      hotel: att === "Yes" ? f.hotel.value : "",
-      arrival: att === "Yes" && f.hotel.value === "Yes" ? f.arrival.value : "",
-      departure: att === "Yes" && f.hotel.value === "Yes" ? f.departure.value : "",
-      dietary: att === "Yes" ? f.dietary.value.trim() : "",
-      message: f.message.value.trim()
+      adults: yes ? counts.adults : 0,
+      kids: yes ? counts.kids : 0,
+      kidsAges: yes && counts.kids > 0 ? f.kidsAges.value.trim() : "",
+      nights: yes ? Number(nights) : 0,
+      phone: f.phone.value.trim()
     };
     var btn = $("rsvpSubmit"); btn.disabled = true; setStatus(st, "Sending…");
     send(Object.assign({ type: "rsvp", website: f.website.value }, r)).then(function () {
@@ -706,7 +709,7 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
   var queue = [];
   var MAX_EDGE = 3200;
   if (load().photoFrom) $("photoFrom").value = load().photoFrom;
-  else if (last && last.names) $("photoFrom").value = last.names + " " + last.family.replace(/^the\s+/i, "").replace(/\s+family$/i, "");
+  else if (last && last.name) $("photoFrom").value = last.name;
 
   function addFiles(list) {
     Array.prototype.forEach.call(list, function (file) {
@@ -763,7 +766,7 @@ footer .sig { font-family: var(--display); font-size: 1.8rem; color: var(--ink);
       if (i >= todo.length) {
         btn.disabled = false;
         if (failed) setStatus(st, ok + " uploaded, " + failed + " didn't go through. Press Upload photos to retry them.", "err");
-        else { setStatus(st, "Thank you! " + ok + (ok === 1 ? " photo is" : " photos are") + " on the way to Pero's album. You can add more anytime.", "ok"); $("photoNote").value = ""; }
+        else { setStatus(st, "Thank you! " + ok + (ok === 1 ? " photo is" : " photos are") + " on the way to the album for Peros. You can add more anytime.", "ok"); $("photoNote").value = ""; }
         return;
       }
       var item = todo[i++];

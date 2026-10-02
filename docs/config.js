@@ -1,4 +1,4 @@
-// Settings for Pero's 40th website. Edit the values here; nothing else needs to change.
+// Settings for Peros 40th website. Edit the values here; nothing else needs to change.
 window.PARTY = {
   // Look of the site: "alpine", "noir" or "porcelain".
   style: "alpine",

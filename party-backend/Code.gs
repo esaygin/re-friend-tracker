@@ -1,5 +1,5 @@
 /**
- * Backend for Pero's 40th website.
+ * Backend for Peros 40th website.
  * Saves RSVPs to this Google Sheet and uploaded photos to a Google Drive folder.
  * Setup steps are in PARTY-SETUP.md.
  */
@@ -10,8 +10,7 @@ var PHOTO_FOLDER_ID = '';
 // Optional: an email address to notify on each new RSVP. Leave empty for no emails.
 var NOTIFY_EMAIL = '';
 
-var RSVP_HEADERS = ['Updated', 'Family', 'Names', 'Email', 'Phone', 'Attending', 'Adults', 'Children',
-  'Children ages', 'Hotel', 'Arrival', 'Departure', 'Dietary needs', 'Message for Pero'];
+var RSVP_HEADERS = ['Updated', 'Name', 'Coming', 'Adults', 'Kids', 'Total people', 'Kids ages', 'Hotel nights', 'Mobile'];
 var PHOTO_HEADERS = ['Received', 'From', 'File', 'Note', 'Link'];
 
 /** Run once from the Apps Script editor to create the tabs and the photo folder. */
@@ -22,7 +21,7 @@ function setup() {
   sheet_(ss, 'Summary', []);
   var props = PropertiesService.getScriptProperties();
   if (!PHOTO_FOLDER_ID && !props.getProperty('PHOTO_FOLDER_ID')) {
-    var folder = DriveApp.createFolder("Pero's 40th - photo album");
+    var folder = DriveApp.createFolder("Peros 40th - photo album");
     props.setProperty('PHOTO_FOLDER_ID', folder.getId());
     Logger.log('Created photo folder: ' + folder.getUrl());
   }
@@ -30,7 +29,7 @@ function setup() {
 }
 
 function doGet() {
-  return json_({ ok: true, message: "Pero's 40th backend is running." });
+  return json_({ ok: true, message: "Peros 40th backend is running." });
 }
 
 function doPost(e) {
@@ -50,24 +49,25 @@ function doPost(e) {
 }
 
 function saveRsvp_(d) {
-  var email = clean_(d.email).toLowerCase();
-  if (!email || !clean_(d.family) || (d.attending !== 'Yes' && d.attending !== 'No')) {
-    return { ok: false, error: 'missing fields' };
-  }
+  var name = clean_(d.name);
+  if (!name || (d.attending !== 'Yes' && d.attending !== 'No')) return { ok: false, error: 'missing fields' };
+  var yes = d.attending === 'Yes';
+  var adults = yes ? num_(d.adults) : 0;
+  var kids = yes ? num_(d.kids) : 0;
+  var nights = yes ? Math.min(num_(d.nights), 2) : 0;
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var sh = sheet_(ss, 'RSVPs', RSVP_HEADERS);
-  var ages = (d.kidAges || []).map(function (a) { return a === '0' || a === 0 ? '<1' : String(a); }).join(', ');
-  var row = [new Date(), safe_(d.family), safe_(d.names), safe_(email), safe_(d.phone), d.attending,
-    num_(d.adults), num_(d.children), ages, safe_(d.hotel), safe_(d.arrival), safe_(d.departure),
-    safe_(d.dietary), safe_(d.message)];
+  var row = [new Date(), safe_(name), d.attending, adults, kids, adults + kids,
+    yes && kids ? safe_(d.kidsAges) : '', nights, safe_(d.phone)];
 
-  // One row per family: a second reply with the same email replaces the first.
+  // One row per family: replying again with the same name replaces the earlier answer.
+  var key = nameKey_(name);
   var last = sh.getLastRow();
   var existing = -1;
   if (last > 1) {
-    var emails = sh.getRange(2, 4, last - 1, 1).getValues();
-    for (var i = 0; i < emails.length; i++) {
-      if (String(emails[i][0]).replace(/^'/, '').toLowerCase() === email) { existing = i + 2; break; }
+    var names = sh.getRange(2, 2, last - 1, 1).getValues();
+    for (var i = 0; i < names.length; i++) {
+      if (nameKey_(names[i][0]) === key) { existing = i + 2; break; }
     }
   }
   if (existing > 0) sh.getRange(existing, 1, 1, row.length).setValues([row]);
@@ -75,13 +75,12 @@ function saveRsvp_(d) {
   updateSummary_();
 
   if (NOTIFY_EMAIL) {
-    var subject = "Pero's 40th RSVP: " + clean_(d.family) + ' - ' + (d.attending === 'Yes' ? 'coming' : 'not coming');
-    var body = clean_(d.names) + ' (' + email + ')\n' +
-      (d.attending === 'Yes'
-        ? num_(d.adults) + ' adults, ' + num_(d.children) + ' children' + (ages ? ' (ages ' + ages + ')' : '') +
-          '\nHotel: ' + clean_(d.hotel) + '\nDietary: ' + clean_(d.dietary)
-        : 'Not coming') +
-      (d.message ? '\n\nMessage: ' + clean_(d.message) : '');
+    var subject = 'Peros 40th RSVP: ' + name + ' - ' + (yes ? 'coming' : 'not coming');
+    var body = yes
+      ? adults + ' adults, ' + kids + ' kids' + (row[6] ? ' (ages ' + clean_(d.kidsAges) + ')' : '') +
+        '\nHotel: ' + (nights ? nights + ' night(s)' : 'not staying')
+      : 'Not coming';
+    if (d.phone) body += '\nMobile: ' + clean_(d.phone);
     MailApp.sendEmail(NOTIFY_EMAIL, subject, body);
   }
   return { ok: true, updated: existing > 0 };
@@ -104,39 +103,35 @@ function savePhoto_(d) {
 function updateSummary_() {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
   var rows = sheet_(ss, 'RSVPs', RSVP_HEADERS).getDataRange().getValues().slice(1);
-  var t = { replied: rows.length, coming: 0, declined: 0, adults: 0, kids: 0, hotelYes: 0, hotelMaybe: 0,
-    hotelPeople: 0, ages: { 'Under 3': 0, '3 to 5': 0, '6 to 9': 0, '10 to 13': 0, '14 to 17': 0 } };
+  var t = { replied: rows.length, coming: 0, declined: 0, adults: 0, kids: 0,
+    one: 0, onePeople: 0, two: 0, twoPeople: 0, dinnerOnly: 0 };
   rows.forEach(function (r) {
-    if (r[5] === 'Yes') {
-      t.coming++; t.adults += +r[6] || 0; t.kids += +r[7] || 0;
-      if (r[9] === 'Yes') { t.hotelYes++; t.hotelPeople += (+r[6] || 0) + (+r[7] || 0); }
-      if (r[9] === 'Maybe') t.hotelMaybe++;
-      String(r[8]).split(',').forEach(function (a) {
-        a = a.trim(); if (!a) return;
-        var n = a === '<1' ? 0 : +a;
-        var k = n < 3 ? 'Under 3' : n < 6 ? '3 to 5' : n < 10 ? '6 to 9' : n < 14 ? '10 to 13' : '14 to 17';
-        t.ages[k]++;
-      });
-    } else if (r[5] === 'No') t.declined++;
+    if (r[2] === 'Yes') {
+      var people = (+r[3] || 0) + (+r[4] || 0);
+      t.coming++; t.adults += +r[3] || 0; t.kids += +r[4] || 0;
+      if (+r[7] === 1) { t.one++; t.onePeople += people; }
+      else if (+r[7] === 2) { t.two++; t.twoPeople += people; }
+      else t.dinnerOnly++;
+    } else if (r[2] === 'No') t.declined++;
   });
   var out = [
-    ["Pero's 40th - summary", ''],
+    ['Peros 40th - summary', ''],
     ['Last updated', new Date()],
     ['', ''],
     ['Families replied', t.replied],
     ['Families coming', t.coming],
     ['Families not coming', t.declined],
+    ['', ''],
     ['Adults coming', t.adults],
-    ['Children coming', t.kids],
-    ['Guests at dinner', t.adults + t.kids],
+    ['Kids coming', t.kids],
+    ['Total people', t.adults + t.kids],
     ['', ''],
-    ['Families staying at the hotel', t.hotelYes],
-    ['People staying at the hotel', t.hotelPeople],
-    ['Families still deciding', t.hotelMaybe],
-    ['', ''],
-    ['Children by age', '']
+    ['Families staying 1 night', t.one],
+    ['  People staying 1 night', t.onePeople],
+    ['Families staying 2 nights', t.two],
+    ['  People staying 2 nights', t.twoPeople],
+    ['Families coming for dinner only', t.dinnerOnly]
   ];
-  Object.keys(t.ages).forEach(function (k) { out.push(['  ' + k, t.ages[k]]); });
   var sh = sheet_(ss, 'Summary', []);
   sh.clearContents();
   sh.getRange(1, 1, out.length, 2).setValues(out);
@@ -162,6 +157,7 @@ function sheet_(ss, name, headers) {
   return sh;
 }
 
+function nameKey_(v) { return String(v).replace(/^'/, '').toLowerCase().replace(/[^a-z0-9\u00c0-\u024f]+/g, ' ').trim(); }
 function clean_(v) { return String(v == null ? '' : v).trim().slice(0, 5000); }
 // Stops text starting with = + - @ from being treated as a spreadsheet formula.
 function safe_(v) { var s = clean_(v); return /^[=+\-@]/.test(s) ? "'" + s : s; }
